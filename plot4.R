@@ -18,7 +18,7 @@ data <- NEI[NEI$SCC %in% sccs,]
 years <- unique(data$year)
 tpme <- sapply(years, function (x) sum(data[data$year == x, "Emissions"]))
 
-plot(years, tpme, type = "b", xlab = "Year", ylab = "Emissions", main = "Yearly Emissions for Coal Combustion Sources")
+barplot(tpme, main="Coal Combustion Emissions per Year in the US", names.arg = years)
 
 dev.copy(png, "plot4.png", width=5, height=5, units="in", res=100)
 dev.off()
