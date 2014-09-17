@@ -16,7 +16,7 @@ data <- NEI[NEI$fips == "24510" & NEI$SCC %in% sccs,]
 years <- unique(data$year)
 tpme <- sapply(years, function (x) sum(data[data$year == x, "Emissions"]))
 
-plot(years, tpme, type = "b", xlab = "Year", ylab = "Emissions", main = "Yearly Emissions for Vehicles in Baltimore")
+barplot(tpme, main="Emissions per Year for Vehicle Sources in Baltimore", names.arg = years)
 
 dev.copy(png, "plot5.png", width=5, height=5, units="in", res=100)
 dev.off()
